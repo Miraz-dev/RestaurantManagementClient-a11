@@ -1,8 +1,25 @@
 // import React from 'react';
 
-import { Link, NavLink} from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import userPic from "../assets/user.png";
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                console.log("User signed out");
+                navigate("/login");
+            })
+            .catch(error => {
+                console.log("Error message while loggin out: ", error);
+            })
+    }
 
     const navItems = <>
         {/* <li><NavLink to={'/'} className={({isActive}) => isActive? "bg-black" : ""}>Home</NavLink></li> */}
@@ -10,6 +27,9 @@ const Navbar = () => {
         <li><NavLink to={'/allFoodItems'}>All Food Items</NavLink></li>
         <li><NavLink to={'/blog'}>Blog</NavLink></li>
     </>;
+
+    const logoutBtn = <button onClick={handleLogOut} className="btn btn-primary btn-xs sm:btn-sm md:btn-md">Log Out</button>;
+    const loginBtn = <Link className="btn btn-primary btn-xs sm:btn-sm md:btn-md " to={'/login'}>Login</Link>;
 
     return (
         <div className="navbar bg-base-100">
@@ -30,7 +50,13 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to={'/login'} className="btn">Login</Link>
+                <span className="mr-2 text-xs md:text-xl">{user?.displayName}</span>
+                {
+                    user && <img className="w-6 h-6 rounded-full mr-2" src={user?.photoURL ? user?.photoURL : userPic} alt="" />
+                }
+                {
+                    user ? logoutBtn : loginBtn
+                }
             </div>
         </div>
     );
