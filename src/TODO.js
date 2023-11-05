@@ -27,3 +27,9 @@
  * AddFoodItemPage: https://i.ibb.co/rty90bC/spices-for-use-as-cooking-ingredients-on-a-wooden-background-with-fresh-vegetables-healthy-food-herb.jpg
  * Form background: https://i.ibb.co/RgWdmhJ/pexels-photo-326333.jpg
  */
+
+
+/**
+ * Pasta: https://i.ibb.co/x61NnW2/one-skillet-cheesy-ground-chicken-pasta-571ba976c8934b75bd995a0c0d292af9.jpg
+ * Main Course: https://i.ibb.co/n3tRSng/depositphotos-98232150-stock-photo-pan-fried-salmon-with-tender.webp
+ */

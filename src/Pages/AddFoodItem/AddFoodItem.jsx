@@ -2,6 +2,8 @@
 
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 const AddFoodItem = () => {
     const {user} = useContext(AuthContext);
@@ -35,11 +37,28 @@ const AddFoodItem = () => {
 
         const info = {foodName, category, price, description, image, origin, qty, user_email, user_name};
         console.log(info);
+
+        axios.post("http://localhost:5000/foods", info)
+            .then(result => {
+                console.log("From POST /foods:", result.data.insertedId);
+                if(result.data.insertedId){
+                    toast.success("Food Item Added!", {autoClose:1000, position:"top-center"});
+                    form.reset();
+
+                    // Redirect user to other page here
+
+                    
+                }
+            })
+            .catch(err => {
+                console.log("Error while saving data POST /foods: ", err);
+            })
     }
 
     return (
         <div className="min-h-screen my-4 m-auto text-orange-900 flex items-center" style={backGroundImg}>
             <div className="max-w-xs mx-auto md:max-w-xl border-2 border-orange-900 rounded">
+                <ToastContainer />
                 <div className="p-2 text-orange-400 bg-orange-900">
                     Food Information
                 </div>
