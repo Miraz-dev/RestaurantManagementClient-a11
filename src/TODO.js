@@ -9,7 +9,9 @@
  * DONE: When saving the food item on database, make sure to pass email address of the user who added it.
  *       This is to prevent the user from purchasing his own product
  * 
- * @TODO Work on "My Added Food Item" page next. Design and show items from the database.
+ * DONE: Work on "My Added Food Item" page next. Design and show items from the database.
+ * @TODO Work on the Update Page.
+ * @TODO Add the Update Functionality
  *  
  * @TODO Next, Work on "ALL FOOD PAGE",
  * @TODO Next, Work on "FOOD DETAILS PAGE",
