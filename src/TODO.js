@@ -1,7 +1,7 @@
 /**
  * DONE: Create the express server to work with Database.
  * DONE: Add MongoDB and save user data on the database.
- * @TODO Add functionality to the register page.
+ * DONE: Add functionality to the register page.
  * @TODO Add functionality to the Login page => manual and google login.
  * 
  * @TODO Add dropdown on the profilePic -> My Added Food Item, Add a food item, My Ordered food item.
