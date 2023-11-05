@@ -5,8 +5,8 @@
  * DONE: Add functionality to the Login page => manual and google login.
  * 
  * DONE: Add dropdown on the profilePic -> My Added Food Item, Add a food item, My Ordered food item.
- * DONE Design and create "Add a food item" page first.
- * @TODO When saving the food item on database, make sure to pass email address of the user who added it.
+ * DONE: Design and create "Add a food item" page first.
+ * DONE: When saving the food item on database, make sure to pass email address of the user who added it.
  *       This is to prevent the user from purchasing his own product
  * 
  * @TODO Work on "My Added Food Item" page next. Design and show items from the database.
@@ -32,4 +32,5 @@
 /**
  * Pasta: https://i.ibb.co/x61NnW2/one-skillet-cheesy-ground-chicken-pasta-571ba976c8934b75bd995a0c0d292af9.jpg
  * Main Course: https://i.ibb.co/n3tRSng/depositphotos-98232150-stock-photo-pan-fried-salmon-with-tender.webp
+ * Sea Food: https://i.ibb.co/8Bg3pQx/shutterstock-1773695441-min.jpg
  */

@@ -4,6 +4,7 @@ import Root from "../layout/Root";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AddFoodItem from "../Pages/AddFoodItem/AddFoodItem";
+import MyAddedFoodItem from "../Pages/MyAddedFoodItem/MyAddedFoodItem";
 
 const router = createBrowserRouter([
     {
@@ -27,7 +28,8 @@ const router = createBrowserRouter([
                 element: <AddFoodItem></AddFoodItem>
             },
             {
-                path: "/myAddedFoodItem"
+                path: "/myAddedFoodItem",
+                element: <MyAddedFoodItem />
             },
             {
                 path: "/myOrders"

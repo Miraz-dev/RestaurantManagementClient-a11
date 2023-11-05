@@ -4,9 +4,11 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const AddFoodItem = () => {
     const {user} = useContext(AuthContext);
+    const navigate = useNavigate();
     const [selectedType, setSelectedType] = useState("");
     const handleSelectTypeChange = (event) => {
         setSelectedType(event.target.value); // Update the selectedOption state with the selected value
@@ -46,8 +48,10 @@ const AddFoodItem = () => {
                     form.reset();
 
                     // Redirect user to other page here
+                    setTimeout(() => {
+                        navigate("/myAddedFoodItem");
+                    }, 2000);
 
-                    
                 }
             })
             .catch(err => {
