@@ -3,6 +3,7 @@ import Home from "../Pages/Home/Home";
 import Root from "../layout/Root";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import AddFoodItem from "../Pages/AddFoodItem/AddFoodItem";
 
 const router = createBrowserRouter([
     {
@@ -22,7 +23,8 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: "/addFoodItem"
+                path: "/addFoodItem",
+                element: <AddFoodItem></AddFoodItem>
             },
             {
                 path: "/myAddedFoodItem"
