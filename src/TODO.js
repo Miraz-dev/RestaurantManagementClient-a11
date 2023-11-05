@@ -1,6 +1,6 @@
 /**
- * @TODO Create the express server to work with Database.
- * @TODO Add MongoDB and save user data on the database.
+ * DONE: Create the express server to work with Database.
+ * DONE: Add MongoDB and save user data on the database.
  * @TODO Add functionality to the register page.
  * @TODO Add functionality to the Login page => manual and google login.
  * 
