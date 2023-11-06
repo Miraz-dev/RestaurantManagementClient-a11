@@ -82,6 +82,7 @@ const UpdateFood = () => {
                         <label className="font-semibold mb-2">Select Category:</label>
                         <select value={selectedType} onChange={handleSelectTypeChange} required className="w-full p-2 border-2 rounded border-orange-950 bg-orange-900 text-orange-400">
                             <option value="">Select an option</option>
+                            <option value="Appetizers">Appetizers</option>
                             <option value="Main Courses">Main Courses</option>
                             <option value="Seafood">Seafood</option>
                             <option value="Beverages">Beverages</option>

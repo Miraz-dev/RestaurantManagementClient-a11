@@ -28,8 +28,8 @@ const Navbar = () => {
         <li><NavLink to={'/blog'}>Blog</NavLink></li>
     </>;
 
-    const logoutBtn = <button onClick={handleLogOut} className="btn btn-primary btn-xs sm:btn-sm md:btn-md">Log Out</button>;
-    const loginBtn = <Link className="btn btn-primary btn-xs sm:btn-sm md:btn-md " to={'/login'}>Login</Link>;
+    const logoutBtn = <button onClick={handleLogOut} className="btn btn-neutral btn-xs sm:btn-sm md:btn-md">Log Out</button>;
+    const loginBtn = <Link className="btn btn-neutral btn-xs sm:btn-sm md:btn-md " to={'/login'}>Login</Link>;
 
 
     const dropDown = <div className="dropdown dropdown-end hover:cursor-pointer">
