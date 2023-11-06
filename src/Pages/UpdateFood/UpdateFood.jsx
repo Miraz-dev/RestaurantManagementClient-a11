@@ -1,11 +1,12 @@
 // import React from 'react';
 
+import axios from "axios";
 import { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 const UpdateFood = () => {
-    const { foodName, category, price, description, image, origin, qty, user_email, user_name } = useLoaderData();
+    const { foodName, category, price, description, image, origin, qty, user_email, user_name, _id } = useLoaderData();
 
     const [selectedType, setSelectedType] = useState("");
     const handleSelectTypeChange = (event) => {
@@ -24,6 +25,33 @@ const UpdateFood = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
+        const form = event.target;
+
+        const foodName = form.name.value;
+        const category = selectedType;
+        const price = form.price.value;
+        const description = form.description.value;
+        const image = form.img.value;
+        const origin = form.origin.value;
+        const qty = form.qty.value;
+        // const user_name = user_name;
+        // const user_email = user_email;
+
+        const info = { foodName, category, price, description, image, origin, qty, user_email, user_name };
+        console.log(info);
+
+        axios.put(`http://localhost:5000/foods/${_id}`, info)
+            .then(result => {
+                if (result.data.modifiedCount > 0) {
+                    toast.success("Data Updated", { autoClose: 1000, position: "top-center" });
+                    setTimeout(() => {
+                        navigate("/myAddedFoodItem");
+                    }, 1500);
+                }
+            })
+            .catch(err => {
+                console.log("Error while Updating data PUT /foods: ", err);
+            })
     }
 
     return (

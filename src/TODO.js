@@ -10,8 +10,8 @@
  *       This is to prevent the user from purchasing his own product
  * 
  * DONE: Work on "My Added Food Item" page next. Design and show items from the database.
- * @TODO Work on the Update Page.
- * @TODO Add the Update Functionality
+ * DONE: Work on the Update Page.
+ * DONE: Add the Update Functionality
  *  
  * @TODO Next, Work on "ALL FOOD PAGE",
  * @TODO Next, Work on "FOOD DETAILS PAGE",
