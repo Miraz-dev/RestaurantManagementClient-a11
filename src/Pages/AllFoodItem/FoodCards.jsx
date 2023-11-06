@@ -14,10 +14,10 @@ const FoodCards = ({ food }) => {
                 <div>
                     <div className="badge badge-secondary">{category}</div>
                     <div className="badge badge-accent ml-1 text-gray-100">Quantity: {qty}</div>
-                    <div className="badge badge-error ml-1 text-gray-100">BDT. {price}</div>
+                    <div className="badge badge-error m-0 md:ml-1 text-gray-100">BDT. {price}</div>
                 </div>
                 
-                <p>{description.slice(0,55)}...</p>
+                <p className='text-gray-600'>{description.slice(0,55)}...</p>
                 <div className="card-actions justify-end">
                     <Link to={`/details/${_id}`} className="btn btn-neutral">Details</Link>
                 </div>
