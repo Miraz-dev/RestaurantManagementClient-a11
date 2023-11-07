@@ -45,8 +45,8 @@ const UpdateFood = () => {
                 if (result.data.modifiedCount > 0) {
                     toast.success("Data Updated", { autoClose: 1000, position: "top-center" });
                     setTimeout(() => {
-                        navigate("/myAddedFoodItem");
-                    }, 1500);
+                        navigate(`/details/${_id}`);
+                    }, 2000);
                 }
             })
             .catch(err => {

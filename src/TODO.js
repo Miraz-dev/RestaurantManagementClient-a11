@@ -10,7 +10,7 @@
  *       This is to prevent the user from purchasing his own product
  * 
  * DONE: Work on "My Added Food Item" page next. Design and show items from the database.
- * @Remainder Work on the Update Page. --Redirect the user to the Food details page--
+ * DONE: Work on the Update Page. --Redirect the user to the Food details page--
  * DONE: Add the Update Functionality
  *  
  * @TODO Next, Work on "ALL FOOD PAGE", 
@@ -18,11 +18,11 @@
  *              -then do search functionailty, 
  *              -then pagination.
  * 
- * @TODO Next, Work on "FOOD DETAILS PAGE",
+ * DONE Next, Work on "FOOD DETAILS PAGE",
  * @TODO Next, Work on "FOOD PURCHASE PAGE",
  * 
  * 
- * @TODO Next, Work on ORDER page, show the food items when user purchasesd/ordered it.
+ * @TODO Next, Work on MyORDER page, show the food items when user purchasesd/ordered it.
  * 
  */
 

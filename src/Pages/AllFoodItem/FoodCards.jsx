@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const FoodCards = ({ food }) => {
-    const { foodName, image, price, origin, qty, description, category, _id, } = food;
+    const { foodName, image, price, origin, qty, description, category, _id } = food;
     return (
         <div className="card max-w-sm bg-base-100 shadow-xl">
             <figure><img src={image} alt={foodName} className='h-72 w-full object-cover' /></figure>
