@@ -3,6 +3,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import TopSellingCard from "./TopSellingCard";
+import { Link } from "react-router-dom";
 
 const TopSellingSection = () => {
     const [topItems, setTopItems] = useState([]);
@@ -20,13 +21,16 @@ const TopSellingSection = () => {
 
     return (
         <div>
-            <h1 className="text-center">Top Selling Foods: </h1>
+            <h1 className="text-center text-xl lg:text-3xl mb-6 mt-14 font-bold">Top Selling Foods</h1>
             <div className="max-w-6xl mx-auto">
                 <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {
                         topItems.map(topItem => <TopSellingCard key={topItem._id} topItem={topItem}></TopSellingCard>)
                     }
                 </div>
+            </div>
+            <div className="my-14 flex justify-center">
+                <Link to={'/allFoodItems'} className="btn btn-neutral">See All</Link>
             </div>
         </div>
     );
