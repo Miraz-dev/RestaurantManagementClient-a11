@@ -17,14 +17,17 @@ const TopSellingCard = ({topItem}) => {
 
     return (
         <div className="card max-w-sm bg-base-100 shadow-xl">
-            <figure><img src={image} alt={foodName} className='h-72 w-full object-cover' /></figure>
+            <figure className='relative'>
+                <img src={image} alt={foodName} className='h-72 w-full object-cover'/>
+                <span className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-gray-100 text-xl lg:text-2xl font-semibold'>Total Ordered: {totalOrders}</span>
+            </figure>
             <div className="card-body">
                 <h2 className="card-title">
                     {foodName}
                 </h2>
                 <div>
                     <div className="badge badge-secondary">{category}</div>
-                    <div className="badge badge-accent ml-1 text-gray-100">Total Ordered: {totalOrders}</div>
+                    {/* <div className="badge badge-accent ml-1 text-gray-100">Total Ordered:<span className='font-bold text-white'>    {totalOrders}</span></div> */}
                     <div className="badge badge-error m-0 md:ml-1 text-gray-100">BDT. {price}</div>
                 </div>
                 

@@ -15,7 +15,7 @@
  *  
  * @TODO Next, Work on "ALL FOOD PAGE", 
  *              - first show all cards = DONE
- *              -then do search functionailty, 
+ *              -then do search functionailty = DONE 
  *              -then pagination.
  * 
  * DONE Next, Work on "FOOD DETAILS PAGE",
@@ -23,8 +23,13 @@
  * 
  * 
  * DONE Next, Work on MyORDER page, show the food items when user purchasesd/ordered it.
- * @TODO Work on HomePage. SHow the six cards. Sort them based on their order(dishOrdered) from high to low, then display the first six.
+ * DONE Work on HomePage. SHow the six cards. Sort them based on their order(dishOrdered) from high to low, then display the first six.
  * 
+ * @TODO Home Page: Extra Two section
+ * @TODO Footer section
+ * @TODO BLOG Page
+ * @TODO JWT.
+ * @TODO Pagination.
  */
 
 

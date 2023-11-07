@@ -1,19 +1,40 @@
 // import React from 'react';
 
-import { Link, useLoaderData } from "react-router-dom";
+import { useContext } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const FoodDetails = () => {
-    const { foodName, image, price, origin, qty, description, category, _id, user_name} = useLoaderData();
+    const { foodName, image, price, origin, qty, description, category, _id, user_name, user_email} = useLoaderData();
+    const {user} = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        const match = user_email == user?.email;
+
+        if(Number(qty) === 0){
+            toast.warn("Item is no longer available in inventory!", {position:"top-center"});
+        }else if(match){
+            toast.error("You cannot ORDER the item you have created! ", {position:"top-center"});
+        }
+        else{
+            navigate(`/order/${_id}`);
+        }
+    }
 
     return (
         <div>
+            <ToastContainer />
             <div className="hero min-h-[75vh]" style={{ backgroundImage: `url(${image})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
                         <h1 className="mb-5 text-4xl md:text-5xl font-bold">{foodName}</h1>
                         <p className="mb-5">{description}</p>
-                        <Link to={`/order/${_id}`} className="btn btn-neutral shadow-md">Click Here To Order</Link>
+                        {/* <Link to={`/order/${_id}`} className="btn btn-neutral shadow-md">Click Here To Order</Link> */}
+                        <button onClick={handleClick} className="btn btn-neutral shadow-md">Click Here To Order</button>
+                        
                     </div>
                 </div>
             </div>
@@ -22,7 +43,7 @@ const FoodDetails = () => {
                 <p className="text-xl text-gray-600 font-bold">Made By: {user_name}</p>
                 <p className="text-gray-500 font-medium">- Country of origin: {origin}</p>
                 <p className="text-gray-500 font-medium">- Category: {category}</p>
-                <p className="text-gray-500 font-medium">- Quantity remaining: {qty}</p>
+                <p className={`${Number(qty) === 0 ? 'text-red-500 font-semibold' : 'text-gray-500 font-medium'}`}>- Quantity remaining: {qty}</p>
                 <p className="text-gray-500 font-medium">- Price: BDT.{price}</p>
             </div>
         </div>
