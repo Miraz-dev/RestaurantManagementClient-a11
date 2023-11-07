@@ -96,6 +96,15 @@ const Purchase = () => {
                         })
                     // End of PATCHING
 
+                    // Update the order count using patch.
+                    /**
+                     * Procedure: 
+                     * 1.First GET all /orders
+                     * 2. Match and filter the current _id with the existing foodUID from database.
+                     * 3. if there is a match then patch the "dishordered" with the new value()
+                     * 4. This strategy requires more thought.
+                     */
+
                     // Redirect user to other page here
                     setTimeout(() => {
                         navigate("/myOrders");

@@ -19,10 +19,11 @@
  *              -then pagination.
  * 
  * DONE Next, Work on "FOOD DETAILS PAGE",
- * @TODO Next, Work on "FOOD PURCHASE PAGE",
+ * DONE Next, Work on "FOOD PURCHASE PAGE",
  * 
  * 
- * @TODO Next, Work on MyORDER page, show the food items when user purchasesd/ordered it.
+ * DONE Next, Work on MyORDER page, show the food items when user purchasesd/ordered it.
+ * @TODO Work on HomePage. SHow the six cards. Sort them based on their order(dishOrdered) from high to low, then display the first six.
  * 
  */
 

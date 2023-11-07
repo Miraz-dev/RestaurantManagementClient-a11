@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 
 const OrdersCard = ({ handleDelete, order }) => {
-    const { foodName, foodPrice, dishOrdered, madeBy, image, description, category, origin, addedTime } = order;
+    const { foodName, foodPrice, dishOrdered, madeBy, image, description, category, origin, addedTime, _id } = order;
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl">
             <figure><img src={image} alt="Album" className='w-full object-cover lg:h-full lg:w-72' /></figure>
@@ -19,7 +19,7 @@ const OrdersCard = ({ handleDelete, order }) => {
                     <p>Grand Total: BDT. {foodPrice}</p>
                 </div>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-neutral">Delete</button>
+                    <button className="btn btn-neutral" onClick={() => handleDelete(_id)}>Delete</button>
                 </div>
             </div>
         </div>
