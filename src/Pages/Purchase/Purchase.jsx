@@ -1,13 +1,17 @@
 // import React from 'react';
 
 import moment from "moment/moment";
-import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useContext, useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { AuthContext } from "../../Provider/AuthProvider";
+import axios from "axios";
 
 const Purchase = () => {
     const { foodName, image, price, origin, qty, description, category, _id, user_name, user_email } = useLoaderData();
     const time = moment().format("MMM Do YY");
+    const {user} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const [number, setNumber] = useState(0); 
     const [quantity, setQuantity] = useState(Number(qty));
@@ -51,13 +55,58 @@ const Purchase = () => {
         console.log("HandleSubmitTotalPrice: ", foodPrice);
 
         if(number === 0){
-            toast.error("Please set the quantity");
+            toast.error("Please set the quantity", {position:"top-center"});
             return;
         }
 
         // Here i need to save the order info on database. Make 
-        // sure to pass the email address, the finaly quantity ordered and total price, date
+        // sure to pass the logged-in email address, and user name who made the dish,
+        // finaly quantity ordered and total price, date
         // on order collection.
+        const info = {
+            foodName,
+            foodPrice,
+            dishOrdered: number,
+            madeBy: user_name,
+            orderedBy: user.email,
+            image,
+            description,
+            category,
+            origin,
+            addedTime: time,
+            foodUID: _id,
+        }
+
+        axios.post("http://localhost:5000/orders", info)
+            .then(result => {
+                // console.log("From POST /foods:", result.data.insertedId);
+                if(result.data.insertedId){
+                    toast.success("Food Item Added!", {autoClose:1000, position:"top-center"});
+
+                    // Update the existing food item's qty here.
+                    axios.patch(`http://localhost:5000/foods/${_id}`, {quantity})
+                        .then(result => {
+                            if(result.data.modifiedCount > 0){
+                                console.log("Existing quantity updated.");
+                            }
+                            console.log(result.data);
+                        })
+                        .catch(err => {
+                            console.log("error while patching: ", err);
+                        })
+                    // End of PATCHING
+
+                    // Redirect user to other page here
+                    setTimeout(() => {
+                        navigate("/myOrders");
+                    }, 2000);
+
+                }
+            })
+            .catch(err => {
+                console.log("Error while saving data POST /orders: ", err);
+            });
+
 
         // Also I need to update the existing food item's quantity. pass the quantity <-state
     }
@@ -75,8 +124,8 @@ const Purchase = () => {
                     <figure><img src={image} alt="Food Picture" className="object-cover" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{foodName}</h2>
-                        <p className="text-gray-400">Buyer name: {user_name}</p>
-                        <p className="text-gray-400">Buyer email: {user_email}</p>
+                        <p className="text-gray-400">Buyer name: {user?.displayName}</p>
+                        <p className="text-gray-400">Buyer email: {user?.email}</p>
                         <p className="text-gray-400">Date: {time}</p>
                         
                         <div>

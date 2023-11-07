@@ -10,6 +10,7 @@ import UpdateFood from "../Pages/UpdateFood/UpdateFood";
 import AllFoodItem from "../Pages/AllFoodItem/AllFoodItem";
 import FoodDetails from "../Pages/FoodDetailPage/FoodDetails";
 import Purchase from "../Pages/Purchase/Purchase";
+import MyOrders from "../Pages/MyOrders/MyOrders";
 
 const router = createBrowserRouter([
     {
@@ -42,7 +43,8 @@ const router = createBrowserRouter([
                 loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
             },
             {
-                path: "/myOrders"
+                path: "/myOrders",
+                element: <MyOrders></MyOrders>
             },
             {
                 path: "/allFoodItems",
