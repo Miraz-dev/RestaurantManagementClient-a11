@@ -9,8 +9,27 @@ const AllFoodItem = () => {
     const [allFoods, setAllFoods] = useState([]);
     const [searchFoodItems, setSearchFoodItems] = useState([]);
 
+
+    /**
+     * @Pagination
+    */
+    const [currentPage, setCurrentPage] = useState(0);
+    const [itemsPerPage, setItemsPerPage] = useState(9);
+    const [count, setCount] = useState(0);
+    const numberOfPages = Math.ceil(count / itemsPerPage);
+
+    const pages = [...Array(numberOfPages).keys()];
+    console.log("pages: ", pages);
+
     useEffect(() => {
-        axios.get("http://localhost:5000/allfoods")
+        fetch("http://localhost:5000/productscount")
+            .then(res => res.json())
+            .then(data => setCount(data.count))
+    }, []);
+
+
+    useEffect(() => {
+        axios.get(`http://localhost:5000/allfoods?page=${currentPage}&size=${itemsPerPage}`)
             .then(result => {
                 setAllFoods(result.data);
                 setSearchFoodItems(result.data);
@@ -18,11 +37,11 @@ const AllFoodItem = () => {
             .catch(err => {
                 console.log("Error while retreiving data: ", err);
             })
-    }, []);
+    }, [currentPage, itemsPerPage]);
 
-    
 
-    const handleSearchSubmit = e =>{
+
+    const handleSearchSubmit = e => {
         e.preventDefault();
         console.log("Initial SeachrFoodItem: ", searchFoodItems);
         const form = e.target;
@@ -34,15 +53,15 @@ const AllFoodItem = () => {
         // }
         const regex = new RegExp(search, 'i');
         const match = allFoods.filter(food => regex.test(food.foodName));
-        if(match){
+        if (match) {
             console.log(match);
             setSearchFoodItems(match);
         }
-        if(!match.length){
-            toast.warn("No Such Dishes Exist", {position:"top-center"});
+        if (!match.length) {
+            toast.warn("No Such Dishes Exist", { position: "top-center" });
             setSearchFoodItems(allFoods);
         }
-        
+
     }
 
     return (
@@ -63,7 +82,22 @@ const AllFoodItem = () => {
             <div className="max-w-6xl mx-auto">
                 <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {
-                        searchFoodItems.map(food => <FoodCards key={food._id} food={food}></FoodCards>)
+                        allFoods.map(food => <FoodCards key={food._id} food={food}></FoodCards>)
+                    }
+                </div>
+            </div>
+
+
+            {/* Pagination */}
+            <p className="text-center">CurrentPage: {currentPage}</p>
+            <div className="flex justify-center">
+                <div className="bg-green-400">
+                    {
+                        pages.map(page => <button
+                            className={currentPage === page ? 'selected' : undefined}
+                            key={page}
+                            onClick={() => setCurrentPage(page)}
+                        >{page}</button>)
                     }
                 </div>
             </div>
