@@ -27,7 +27,7 @@
  * 
  * DONE Home Page: Extra Two section
  * DONE Footer section
- * @TODO BLOG Page
+ * DONE BLOG Page
  * @TODO JWT.
  * @TODO Pagination.
  */
