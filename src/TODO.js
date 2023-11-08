@@ -25,7 +25,7 @@
  * DONE Next, Work on MyORDER page, show the food items when user purchasesd/ordered it.
  * DONE Work on HomePage. SHow the six cards. Sort them based on their order(dishOrdered) from high to low, then display the first six.
  * 
- * @TODO Home Page: Extra Two section
+ * DONE Home Page: Extra Two section
  * @TODO Footer section
  * @TODO BLOG Page
  * @TODO JWT.
