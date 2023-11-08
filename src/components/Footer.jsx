@@ -5,7 +5,7 @@ import { IoRestaurantOutline } from 'react-icons/io5';
 
 const Footer = () => {
     return (
-        <footer className="footer footer-center p-10 bg-black font-medium text-base-content rounded mt-32">
+        <footer className="footer footer-center p-10 bg-black font-medium text-base-content rounded">
             <nav className="grid grid-flow-col gap-4 text-white">
                 <Link to={'/allFoodItems'} className="link link-hover">Dishes</Link>
                 <Link to={'/blog'} className="link link-hover">Blog</Link>

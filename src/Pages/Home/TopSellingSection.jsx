@@ -5,19 +5,26 @@ import { useEffect, useState } from "react";
 import TopSellingCard from "./TopSellingCard";
 import { Link } from "react-router-dom";
 
+
+
 const TopSellingSection = () => {
     const [topItems, setTopItems] = useState([]);
+    const [looding, setLooding] = useState(false);
 
     useEffect(()=> {
-        // axios.get("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/orders")
-        axios.get("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/top-selling-items")
+        // axios.get("https://restaurant-management-server-eta.vercel.app/orders")
+        axios.get("https://restaurant-management-server-eta.vercel.app/top-selling-items")
             .then(result => {
                 setTopItems(result.data);
             })
             .catch(err => {
                 console.log("Error while GET /orders: ", err.data);
-            })
+            });
+
+        setLooding(true);
     }, []);
+
+    const data = topItems.map(topItem => <TopSellingCard key={topItem._id} topItem={topItem}></TopSellingCard>);
 
     return (
         <div>
@@ -25,7 +32,7 @@ const TopSellingSection = () => {
             <div className="max-w-6xl mx-auto">
                 <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {
-                        topItems.map(topItem => <TopSellingCard key={topItem._id} topItem={topItem}></TopSellingCard>)
+                        looding ? data : <div className="flex justify-center"><span className="loading loading-spinner loading-lg"></span></div>
                     }
                 </div>
             </div>

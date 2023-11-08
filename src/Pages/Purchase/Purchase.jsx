@@ -6,6 +6,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const Purchase = () => {
     const { foodName, image, price, origin, qty, description, category, _id, user_name, user_email } = useLoaderData();
@@ -77,14 +78,14 @@ const Purchase = () => {
             foodUID: _id,
         }
 
-        axios.post("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/orders", info)
+        axios.post("https://restaurant-management-server-eta.vercel.app/orders", info)
             .then(result => {
                 // console.log("From POST /foods:", result.data.insertedId);
                 if(result.data.insertedId){
                     toast.success("Food Item Added!", {autoClose:1000, position:"top-center"});
 
                     // Update the existing food item's qty here.
-                    axios.patch(`https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/foods/${_id}`, {quantity})
+                    axios.patch(`https://restaurant-management-server-eta.vercel.app/foods/${_id}`, {quantity})
                         .then(result => {
                             if(result.data.modifiedCount > 0){
                                 console.log("Existing quantity updated.");
@@ -122,6 +123,11 @@ const Purchase = () => {
 
     return (
         <div className="mt-14">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>FP || Orders</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <ToastContainer />
             <form onSubmit={handleSubmit}>
                 {/* <div className="max-w-sm mx-auto border-2 border-black p-8">

@@ -1,4 +1,5 @@
 # Live Link: 
+ - https://restaurant-management-d0c16.web.app/
 
 # WEBSITE NAME AND FEATURE
 
@@ -19,3 +20,7 @@
 - Website has search functionality
 
 - Pagination is used to show all the food data. Each page has maximum of 9 data.
+
+- Helmet Package is used to show title on the browsers tab.
+
+- Daisy UI's spinnner is added when data is in loading state.

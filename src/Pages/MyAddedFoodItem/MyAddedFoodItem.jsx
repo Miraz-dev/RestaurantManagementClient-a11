@@ -4,13 +4,14 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import FoodRows from "./FoodRows";
+import { Helmet } from "react-helmet";
 
 const MyAddedFoodItem = () => {
 
     const { user } = useContext(AuthContext);
     const [foodItems, setFoodItems] = useState([]);
 
-    const url = `https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/foods?email=${user?.email}`;
+    const url = `https://restaurant-management-server-eta.vercel.app/foods?email=${user?.email}`;
 
     useEffect(() => {
         axios.get(url)
@@ -26,6 +27,11 @@ const MyAddedFoodItem = () => {
 
     return (
         <div className="overflow-x-auto min-h-screen">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>FP || My Added Food</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <table className="table-xs md:table">
                 {/* head */}
                 <thead>

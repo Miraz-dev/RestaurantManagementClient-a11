@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const FoodDetails = () => {
     const { foodName, image, price, origin, qty, description, category, _id, user_name, user_email} = useLoaderData();
@@ -25,6 +26,11 @@ const FoodDetails = () => {
 
     return (
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>FP || Details</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <ToastContainer />
             <div className="hero min-h-[75vh]" style={{ backgroundImage: `url(${image})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>

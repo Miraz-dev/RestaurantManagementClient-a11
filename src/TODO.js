@@ -30,12 +30,13 @@
  * DONE BLOG Page
  * DONE JWT.
  * DONE Pagination.
- * @USE_HELMET
+ * DONE USE_HELMET
  * @FRAMER_MOTION
  * @SHOWING_SPINNER_WHILE_LOADING_DATA_DB
  * 
  */
 
+// https://dev.to/shafia/how-to-create-an-account-and-deploy-an-express-api-on-render-145j?fbclid=IwAR17xETqwMAWbz6bVE69TeqpmEeydYS2brWf3VSYS35s8LnS2RyYsOGGIQs
 
 /**
  * Profile Pic: https://i.ibb.co/sm7GPJr/photo-1582233479366-6d38bc390a08-auto-format-fit-crop-q-80-w-1783-ixlib-rb-4-0.jpg
@@ -84,5 +85,5 @@
  */
 
 /**
- * https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app
+ * https://restaurant-management-server-eta.vercel.app
  */

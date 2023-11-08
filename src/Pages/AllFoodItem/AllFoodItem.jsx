@@ -6,6 +6,7 @@ import FoodCards from "./FoodCards";
 import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const AllFoodItem = () => {
     const [allFoods, setAllFoods] = useState([]);
@@ -28,7 +29,7 @@ const AllFoodItem = () => {
     console.log("pages: ", pages);
 
     useEffect(() => {
-        axios.get("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/foods")
+        axios.get("https://restaurant-management-server-eta.vercel.app/foods")
             .then(result => {
                 // setSearchFoodItems(result.data);
                 setExtraAllFoods(result.data);
@@ -37,14 +38,14 @@ const AllFoodItem = () => {
                 console.log("Error while retreiving data: ", err);
             });
 
-        fetch("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/productscount")
+        fetch("https://restaurant-management-server-eta.vercel.app/productscount")
             .then(res => res.json())
             .then(data => setCount(data.count));
     }, []);
 
 
     useEffect(() => {
-        axios.get(`https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/allfoods?page=${currentPage}&size=${itemsPerPage}`)
+        axios.get(`https://restaurant-management-server-eta.vercel.app/allfoods?page=${currentPage}&size=${itemsPerPage}`)
             .then(result => {
                 setAllFoods(result.data);
                 // setSearchFoodItems(result.data);
@@ -94,7 +95,12 @@ const AllFoodItem = () => {
     }
 
     return (
-        <div>
+        <div className="min-h-screen">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>FP || ALL FOOD</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             {/* <h1>All Food Item Page: {allFoods.length}</h1> */}
             {/* Search functionality */}
             <ToastContainer />

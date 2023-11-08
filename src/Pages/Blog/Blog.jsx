@@ -1,8 +1,16 @@
 // import React from 'react';
 
+import { Helmet } from "react-helmet";
+
 const Blog = () => {
     return (
         <div className='min-h-screen leading-8 p-1 lg:p-0'>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>FP || Blog</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+
             <h1 className="text-center font-bold text-xl md:text-2xl lg:text-4xl my-14">Foodopedia Blogs</h1>
 
             <div className="mb-14">

@@ -5,6 +5,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const AddFoodItem = () => {
     const {user} = useContext(AuthContext);
@@ -40,7 +41,7 @@ const AddFoodItem = () => {
         const info = {foodName, category, price, description, image, origin, qty, user_email, user_name};
         console.log(info);
 
-        axios.post("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/foods", info)
+        axios.post("https://restaurant-management-server-eta.vercel.app/foods", info)
             .then(result => {
                 console.log("From POST /foods:", result.data.insertedId);
                 if(result.data.insertedId){
@@ -61,6 +62,11 @@ const AddFoodItem = () => {
 
     return (
         <div className="min-h-screen my-4 m-auto text-orange-900 flex items-center" style={backGroundImg}>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>FP || Add Food</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <div className="max-w-xs mx-auto md:max-w-xl border-2 border-orange-900 rounded">
                 <ToastContainer />
                 <div className="p-2 text-orange-400 bg-orange-900">

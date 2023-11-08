@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -40,7 +41,7 @@ const UpdateFood = () => {
         const info = { foodName, category, price, description, image, origin, qty, user_email, user_name };
         console.log(info);
 
-        axios.put(`https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/foods/${_id}`, info)
+        axios.put(`https://restaurant-management-server-eta.vercel.app/foods/${_id}`, info)
             .then(result => {
                 if (result.data.modifiedCount > 0) {
                     toast.success("Data Updated", { autoClose: 1000, position: "top-center" });
@@ -56,6 +57,11 @@ const UpdateFood = () => {
 
     return (
         <div className="min-h-screen my-4 m-auto text-orange-900 flex items-center" style={backGroundImg}>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>FP || Update</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <div className="max-w-xs mx-auto md:max-w-xl border-2 border-orange-900 rounded">
                 <ToastContainer />
                 <div className="p-2 text-orange-400 bg-orange-900">

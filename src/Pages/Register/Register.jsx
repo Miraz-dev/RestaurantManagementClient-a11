@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
 
@@ -45,7 +46,7 @@ const Register = () => {
 
                 // Saving the user info on database.
                 const info = {name, email, password, uid: result.user.uid, photoURL};
-                axios.post("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/user", info)
+                axios.post("https://restaurant-management-server-eta.vercel.app/user", info)
                     .then(result => {
                         console.log("Client side registraion mongoDB: ", result.data);
                     })
@@ -83,6 +84,11 @@ const Register = () => {
 
     return (
         <div className="hero min-h-screen bg-base-200">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>FP || Sign Up</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <ToastContainer />
             <div className="hero-content flex-col ">
                 <div className="text-center">

@@ -44,7 +44,7 @@ const router = createBrowserRouter([
             {
                 path: "/updateFood/:id",
                 element: <UpdateFood></UpdateFood>,
-                loader: ({params}) => fetch(`https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/foods/${params.id}`)
+                loader: ({params}) => fetch(`https://restaurant-management-server-eta.vercel.app/foods/${params.id}`)
             },
             {
                 path: "/myOrders",
@@ -57,12 +57,12 @@ const router = createBrowserRouter([
             {
                 path: "/details/:id",
                 element: <FoodDetails></FoodDetails>,
-                loader: ({params}) => fetch(`https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/foods/${params.id}`)
+                loader: ({params}) => fetch(`https://restaurant-management-server-eta.vercel.app/foods/${params.id}`)
             },
             {
                 path: "/order/:id",
                 element: <PrivateRoutes><Purchase></Purchase></PrivateRoutes>,
-                loader: ({params}) => fetch(`https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/foods/${params.id}`)
+                loader: ({params}) => fetch(`https://restaurant-management-server-eta.vercel.app/foods/${params.id}`)
             },
             {
                 path: "/blog",

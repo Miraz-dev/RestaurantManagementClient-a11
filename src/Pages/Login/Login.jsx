@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
     const {googleSignIn, signInUser} = useContext(AuthContext);
@@ -23,7 +24,7 @@ const Login = () => {
                 console.log("From LogIn Page: ", result.user);
 
                 const user = {email};
-                axios.post("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/jwt", user, {withCredentials: true})
+                axios.post("https://restaurant-management-server-eta.vercel.app/jwt", user, {withCredentials: true})
                     .then(res => {
                         if(res.data.success){
                             toast.success("Login Success", { autoClose: 1000, position: "top-center" });
@@ -34,7 +35,7 @@ const Login = () => {
                         }, 2000);
                     })
                     .catch(err => {
-                        console.log("JWT serror login: ", err.data);
+                        console.log("JWT serror login: ", err.config.data);
                     })
 
                 
@@ -59,7 +60,7 @@ const Login = () => {
 
                 // Saving user info on the database.
                 // Here i need to stop duplication.
-                fetch("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/user")
+                fetch("https://restaurant-management-server-eta.vercel.app/user")
                     .then(res => res.json())
                     .then(datas => {
                         console.log("see this: ", datas, typeof datas);
@@ -67,7 +68,7 @@ const Login = () => {
                         // console.log("Ans is: ", duplicate);
                         if (!duplicate.length) {
                             const info = { name: result.user.displayName, email: result.user.email, uid: result.user.uid };
-                            fetch("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/user", {
+                            fetch("https://restaurant-management-server-eta.vercel.app/user", {
                                 method: "POST",
                                 headers: {
                                     "content-type": "application/json"
@@ -89,7 +90,7 @@ const Login = () => {
 
                 // JWT
                 const user = {email};
-                axios.post("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/jwt", user, {withCredentials: true})
+                axios.post("https://restaurant-management-server-eta.vercel.app/jwt", user, {withCredentials: true})
                     .then(res => {
                         if(res.data.success){
                             toast.success("Login Success", { autoClose: 1000, position: "top-center" });
@@ -100,7 +101,7 @@ const Login = () => {
                         }, 2000);
                     })
                     .catch(err => {
-                        console.log("JWT serror login: ", err.data);
+                        console.log("JWT error login: ", err);
                     })
 
                 // toast.success("Login Success", { autoClose: 1000, position: "top-center" });
@@ -116,6 +117,11 @@ const Login = () => {
 
     return (
         <div className="hero min-h-screen bg-base-200">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>FP || Login</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <ToastContainer />
             <div className="hero-content flex-col ">
                 <div className="text-center">

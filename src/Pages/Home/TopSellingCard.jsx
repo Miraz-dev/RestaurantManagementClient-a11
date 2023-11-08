@@ -8,7 +8,7 @@ const TopSellingCard = ({topItem}) => {
     const [item, setItem] = useState([]);
 
     useEffect(()=>{
-        fetch(`https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/foods/${_id}`)
+        fetch(`https://restaurant-management-server-eta.vercel.app/foods/${_id}`)
         .then(res => res.json())
         .then(data => setItem(data))
     }, [_id]);
