@@ -40,7 +40,7 @@ const AddFoodItem = () => {
         const info = {foodName, category, price, description, image, origin, qty, user_email, user_name};
         console.log(info);
 
-        axios.post("http://localhost:5000/foods", info)
+        axios.post("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/foods", info)
             .then(result => {
                 console.log("From POST /foods:", result.data.insertedId);
                 if(result.data.insertedId){

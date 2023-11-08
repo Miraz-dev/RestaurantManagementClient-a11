@@ -19,11 +19,11 @@ const Navbar = () => {
         logOut()
             .then(() => {
                 console.log("User signed out");
-                axios.post("http://localhost:5000/logout", loggedUser, {withCredentials: true})
+                axios.post("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/logout", loggedUser, {withCredentials: true})
                     .then(res => {
                         console.log("From axios POST /logout :", res.data);
                     })
-                    
+
                 navigate("/login");
             })
             .catch(error => {

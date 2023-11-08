@@ -13,7 +13,7 @@
  * DONE: Work on the Update Page. --Redirect the user to the Food details page--
  * DONE: Add the Update Functionality
  *  
- * @TODO Next, Work on "ALL FOOD PAGE", 
+ * DONE Next, Work on "ALL FOOD PAGE", 
  *              - first show all cards = DONE
  *              -then do search functionailty = DONE 
  *              -then pagination.
@@ -28,8 +28,12 @@
  * DONE Home Page: Extra Two section
  * DONE Footer section
  * DONE BLOG Page
- * @TODO JWT.
- * @TODO Pagination.
+ * DONE JWT.
+ * DONE Pagination.
+ * @USE_HELMET
+ * @FRAMER_MOTION
+ * @SHOWING_SPINNER_WHILE_LOADING_DATA_DB
+ * 
  */
 
 
@@ -77,4 +81,8 @@
  * -Caesar Salad: https://i.ibb.co/4m49ttL/the-best-caesar-salad-recipe-06-40e70f549ba2489db09355abd62f79a9.jpg
  * -Tomato Basil Soup: https://i.ibb.co/kSCxhg6/hd-aspect-1446063831-weeknight-din-tomato-soup.jpg
  * -Greek Salad: https://i.ibb.co/yq5n8xd/06-greek-salad-soup-salad.jpg
+ */
+
+/**
+ * https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app
  */

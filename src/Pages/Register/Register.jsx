@@ -45,7 +45,7 @@ const Register = () => {
 
                 // Saving the user info on database.
                 const info = {name, email, password, uid: result.user.uid, photoURL};
-                axios.post("http://localhost:5000/user", info)
+                axios.post("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/user", info)
                     .then(result => {
                         console.log("Client side registraion mongoDB: ", result.data);
                     })
@@ -118,7 +118,7 @@ const Register = () => {
                         </label> */}
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Register</button>
+                            <button className="btn btn-outline btn-neutral">Register</button>
                         </div>
                     </form>
                     <p className="text-xs text-center mb-4">Already have an Account? <Link to={'/login'} className="text-blue-400 hover:text-blue-600 hover:font-semibold cursor-pointer">Login</Link></p>

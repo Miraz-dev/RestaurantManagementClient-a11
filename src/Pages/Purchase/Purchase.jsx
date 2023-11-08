@@ -77,14 +77,14 @@ const Purchase = () => {
             foodUID: _id,
         }
 
-        axios.post("http://localhost:5000/orders", info)
+        axios.post("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/orders", info)
             .then(result => {
                 // console.log("From POST /foods:", result.data.insertedId);
                 if(result.data.insertedId){
                     toast.success("Food Item Added!", {autoClose:1000, position:"top-center"});
 
                     // Update the existing food item's qty here.
-                    axios.patch(`http://localhost:5000/foods/${_id}`, {quantity})
+                    axios.patch(`https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/foods/${_id}`, {quantity})
                         .then(result => {
                             if(result.data.modifiedCount > 0){
                                 console.log("Existing quantity updated.");

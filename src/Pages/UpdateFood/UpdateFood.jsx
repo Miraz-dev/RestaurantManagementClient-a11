@@ -40,7 +40,7 @@ const UpdateFood = () => {
         const info = { foodName, category, price, description, image, origin, qty, user_email, user_name };
         console.log(info);
 
-        axios.put(`http://localhost:5000/foods/${_id}`, info)
+        axios.put(`https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/foods/${_id}`, info)
             .then(result => {
                 if (result.data.modifiedCount > 0) {
                     toast.success("Data Updated", { autoClose: 1000, position: "top-center" });

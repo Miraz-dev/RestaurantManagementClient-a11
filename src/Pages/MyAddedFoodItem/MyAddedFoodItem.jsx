@@ -10,7 +10,7 @@ const MyAddedFoodItem = () => {
     const { user } = useContext(AuthContext);
     const [foodItems, setFoodItems] = useState([]);
 
-    const url = `http://localhost:5000/foods?email=${user?.email}`;
+    const url = `https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/foods?email=${user?.email}`;
 
     useEffect(() => {
         axios.get(url)

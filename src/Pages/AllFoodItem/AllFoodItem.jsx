@@ -28,7 +28,7 @@ const AllFoodItem = () => {
     console.log("pages: ", pages);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/foods")
+        axios.get("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/foods")
             .then(result => {
                 // setSearchFoodItems(result.data);
                 setExtraAllFoods(result.data);
@@ -37,14 +37,14 @@ const AllFoodItem = () => {
                 console.log("Error while retreiving data: ", err);
             });
 
-        fetch("http://localhost:5000/productscount")
+        fetch("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/productscount")
             .then(res => res.json())
             .then(data => setCount(data.count));
     }, []);
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/allfoods?page=${currentPage}&size=${itemsPerPage}`)
+        axios.get(`https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/allfoods?page=${currentPage}&size=${itemsPerPage}`)
             .then(result => {
                 setAllFoods(result.data);
                 // setSearchFoodItems(result.data);

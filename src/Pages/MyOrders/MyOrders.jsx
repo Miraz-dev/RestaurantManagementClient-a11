@@ -6,13 +6,15 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import OrdersCard from "./OrdersCard";
 import { ToastContainer, toast } from "react-toastify";
 
+// https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/
+
 const MyOrders = () => {
     const {user} = useContext(AuthContext);
     const [orders, setOrders] = useState([]);
     const userEmail = user?.email;
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/orders?email=${userEmail}`, {withCredentials: true})
+        axios.get(`https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/orders?email=${userEmail}`, {withCredentials: true})
             .then(result => {
                 setOrders(result.data);
             })
@@ -24,7 +26,7 @@ const MyOrders = () => {
 
     const handleDelete = id => {
         console.log("From handleDelete: ", id);
-        axios.delete(`http://localhost:5000/orders/${id}`)
+        axios.delete(`https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/orders/${id}`)
             .then(result => {
                 if(result.data.deletedCount > 0){
                     toast.success("Order deleted successfully", {position:"top-center", autoClose:1000});
@@ -38,7 +40,7 @@ const MyOrders = () => {
     }
 
     return (
-        <div className="min-h-full">
+        <div className="min-h-screen">
             <ToastContainer />
             <div className="py-8">
                 <h1 className="text-center text-base md:text-2xl font-semibold text-green-500">Your Orders: {orders.length}</h1>

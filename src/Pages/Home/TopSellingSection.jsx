@@ -9,8 +9,8 @@ const TopSellingSection = () => {
     const [topItems, setTopItems] = useState([]);
 
     useEffect(()=> {
-        // axios.get("http://localhost:5000/orders")
-        axios.get("http://localhost:5000/top-selling-items")
+        // axios.get("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/orders")
+        axios.get("https://restaurant-management-server-q6wp4twq3-miraz-farids-projects.vercel.app/top-selling-items")
             .then(result => {
                 setTopItems(result.data);
             })

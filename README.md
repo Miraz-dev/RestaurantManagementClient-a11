@@ -1,8 +1,21 @@
-# React + Vite
+# Live Link: 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# WEBSITE NAME AND FEATURE
 
-Currently, two official plugins are available:
+- Website Name: Foodopedia
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Website is responsive
+
+- Firebase Authentication system is used for user login and registration.
+
+- Authorized the server routes with the JWT token.  Implemented the JWT on private route: /myOrders
+
+- Data is saved on the mongoDB database for each user. So they remain persistent.
+
+- User can add, delete, update and read/see data when they log in.
+
+- Home page shows the six top-selling products
+
+- Website has search functionality
+
+- Pagination is used to show all the food data. Each page has maximum of 9 data.
