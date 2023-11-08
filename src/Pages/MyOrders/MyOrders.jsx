@@ -38,7 +38,7 @@ const MyOrders = () => {
     }
 
     return (
-        <div>
+        <div className="min-h-full">
             <ToastContainer />
             <div className="py-8">
                 <h1 className="text-center text-base md:text-2xl font-semibold text-green-500">Your Orders: {orders.length}</h1>

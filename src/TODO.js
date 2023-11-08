@@ -26,7 +26,7 @@
  * DONE Work on HomePage. SHow the six cards. Sort them based on their order(dishOrdered) from high to low, then display the first six.
  * 
  * DONE Home Page: Extra Two section
- * @TODO Footer section
+ * DONE Footer section
  * @TODO BLOG Page
  * @TODO JWT.
  * @TODO Pagination.

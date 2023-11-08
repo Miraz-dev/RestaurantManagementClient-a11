@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import userPic from "../assets/user.png";
+import { IoRestaurantOutline } from 'react-icons/io5';
 
 const Navbar = () => {
 
@@ -54,7 +55,10 @@ const Navbar = () => {
                     </ul>
                 </div>
                 {/* <a className="btn btn-ghost normal-case text-xl">WebLogo+Name</a> */}
-                <Link to={'/'} className="text-xs md:text-base lg:text-xl">Foodopedia</Link>
+                <div className="flex items-center">
+                    <Link to={'/'} className="text-xs md:text-base lg:text-xl font-semibold">Foodopedia</Link>
+                    <span><IoRestaurantOutline className="w-6 h-6 text-blue-600"/></span> 
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

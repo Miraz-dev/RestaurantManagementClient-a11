@@ -25,7 +25,7 @@ const MyAddedFoodItem = () => {
     }, [url]);
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto min-h-screen">
             <table className="table-xs md:table">
                 {/* head */}
                 <thead>
