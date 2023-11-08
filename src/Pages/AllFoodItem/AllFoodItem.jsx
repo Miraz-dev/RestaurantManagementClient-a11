@@ -118,12 +118,12 @@ const AllFoodItem = () => {
 
 
             {/* Pagination */}
-            <p className="text-center">CurrentPage: {currentPage}</p>
+            {/* <p className="text-center">CurrentPage: {currentPage}</p> */}
             <div className="flex justify-center">
-                <div className="bg-green-400">
+                <div className="my-10">
                     {
                         pages.map(page => <button
-                            className={currentPage === page ? 'selected' : undefined}
+                            className={currentPage === page ? 'btn btn-neutral mr-2' : 'btn mr-2'}
                             key={page}
                             onClick={() => setCurrentPage(page)}
                         >{page}</button>)
