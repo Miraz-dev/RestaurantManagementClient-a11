@@ -1,13 +1,19 @@
 // import React from 'react';
 
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import FoodCards from "./FoodCards";
 import { ToastContainer, toast } from "react-toastify";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const AllFoodItem = () => {
     const [allFoods, setAllFoods] = useState([]);
-    const [searchFoodItems, setSearchFoodItems] = useState([]);
+
+    const [extraAllFoods, setExtraAllFoods] = useState([]);
+    // const [searchFoodItems, setSearchFoodItems] = useState([]);
+    const {searchFoodItems, setSearchFoodItems} = useContext(AuthContext);
+    const navigate = useNavigate();
 
 
     /**
@@ -22,9 +28,18 @@ const AllFoodItem = () => {
     console.log("pages: ", pages);
 
     useEffect(() => {
+        axios.get("http://localhost:5000/foods")
+            .then(result => {
+                // setSearchFoodItems(result.data);
+                setExtraAllFoods(result.data);
+            })
+            .catch(err => {
+                console.log("Error while retreiving data: ", err);
+            });
+
         fetch("http://localhost:5000/productscount")
             .then(res => res.json())
-            .then(data => setCount(data.count))
+            .then(data => setCount(data.count));
     }, []);
 
 
@@ -32,7 +47,7 @@ const AllFoodItem = () => {
         axios.get(`http://localhost:5000/allfoods?page=${currentPage}&size=${itemsPerPage}`)
             .then(result => {
                 setAllFoods(result.data);
-                setSearchFoodItems(result.data);
+                // setSearchFoodItems(result.data);
             })
             .catch(err => {
                 console.log("Error while retreiving data: ", err);
@@ -40,9 +55,16 @@ const AllFoodItem = () => {
     }, [currentPage, itemsPerPage]);
 
 
+    
 
     const handleSearchSubmit = e => {
         e.preventDefault();
+
+        
+            
+
+
+
         console.log("Initial SeachrFoodItem: ", searchFoodItems);
         const form = e.target;
         const search = (form.search.value).toLowerCase();
@@ -51,15 +73,22 @@ const AllFoodItem = () => {
         // if(match){
         //     console.log(match);
         // }
+
+        if(search === ""){
+            return;
+        }
+
         const regex = new RegExp(search, 'i');
-        const match = allFoods.filter(food => regex.test(food.foodName));
+        const match = extraAllFoods.filter(food => regex.test(food.foodName));
         if (match) {
             console.log(match);
             setSearchFoodItems(match);
+            navigate("/searchResult");
         }
-        if (!match.length) {
+
+        if(!match.length) {
             toast.warn("No Such Dishes Exist", { position: "top-center" });
-            setSearchFoodItems(allFoods);
+            setSearchFoodItems([]);
         }
 
     }

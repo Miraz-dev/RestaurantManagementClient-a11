@@ -13,6 +13,7 @@ import Purchase from "../Pages/Purchase/Purchase";
 import MyOrders from "../Pages/MyOrders/MyOrders";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Blog from "../Pages/Blog/Blog";
+import Searchpage from "../Pages/SearchPage.jsx/Searchpage";
 
 const router = createBrowserRouter([
     {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
             {
                 path: "/blog",
                 element: <Blog></Blog>
+            },
+            {
+                path: "/searchResult",
+                element: <Searchpage></Searchpage>
             }
         ]
     }

@@ -12,6 +12,7 @@ const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loggedInUserName, setLoggedInUserName] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [searchFoodItems, setSearchFoodItems] = useState([]);
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -64,7 +65,9 @@ const AuthProvider = ({children}) => {
         googleSignIn,
         loading,
         user,
-        loggedInUserName
+        loggedInUserName,
+        searchFoodItems,
+        setSearchFoodItems
     };
 
     return (
