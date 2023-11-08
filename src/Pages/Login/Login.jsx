@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 
 const Login = () => {
     const {googleSignIn, signInUser} = useContext(AuthContext);
@@ -21,10 +22,25 @@ const Login = () => {
             .then(result => {
                 console.log("From LogIn Page: ", result.user);
 
-                toast.success("Login Success", { autoClose: 1000, position: "top-center" });
-                setTimeout(() => {
-                    navigate(location?.state ? location.state : "/");
-                }, 2000);
+                const user = {email};
+                axios.post("http://localhost:5000/jwt", user, {withCredentials: true})
+                    .then(res => {
+                        if(res.data.success){
+                            toast.success("Login Success", { autoClose: 1000, position: "top-center" });
+                        }
+
+                        setTimeout(() => {
+                            navigate(location?.state ? location.state : "/");
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.log("JWT serror login: ", err.data);
+                    })
+
+                
+                // setTimeout(() => {
+                //     navigate(location?.state ? location.state : "/");
+                // }, 2000);
             })
             .catch(error => {
                 console.log("From login page: ", error.message);
@@ -38,6 +54,8 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 console.log("Google sign in: ", result.user);
+                const email = result.user.email;
+
 
                 // Saving user info on the database.
                 // Here i need to stop duplication.
@@ -69,10 +87,26 @@ const Login = () => {
 
                 // end
 
-                toast.success("Login Success", { autoClose: 1000, position: "top-center" });
-                setTimeout(() => {
-                    navigate(location?.state ? location.state : "/");
-                }, 2000);
+                // JWT
+                const user = {email};
+                axios.post("http://localhost:5000/jwt", user, {withCredentials: true})
+                    .then(res => {
+                        if(res.data.success){
+                            toast.success("Login Success", { autoClose: 1000, position: "top-center" });
+                        }
+
+                        setTimeout(() => {
+                            navigate(location?.state ? location.state : "/");
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.log("JWT serror login: ", err.data);
+                    })
+
+                // toast.success("Login Success", { autoClose: 1000, position: "top-center" });
+                // setTimeout(() => {
+                //     navigate(location?.state ? location.state : "/");
+                // }, 2000);
             })
             .catch(error => {
                 console.log("GoogleSignInError: ", error);

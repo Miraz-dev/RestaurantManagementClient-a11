@@ -5,16 +5,25 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import userPic from "../assets/user.png";
 import { IoRestaurantOutline } from 'react-icons/io5';
+import axios from "axios";
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
 
+    const userEmail = user?.email;
+    const loggedUser = { email: userEmail };
+
     const handleLogOut = () => {
         logOut()
             .then(() => {
                 console.log("User signed out");
+                axios.post("http://localhost:5000/logout", loggedUser, {withCredentials: true})
+                    .then(res => {
+                        console.log("From axios POST /logout :", res.data);
+                    })
+                    
                 navigate("/login");
             })
             .catch(error => {
