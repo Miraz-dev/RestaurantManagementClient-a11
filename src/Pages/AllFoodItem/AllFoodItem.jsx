@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet";
 
 const AllFoodItem = () => {
     const [allFoods, setAllFoods] = useState([]);
+    const [looding, setLooding] = useState(false);
 
     const [extraAllFoods, setExtraAllFoods] = useState([]);
     // const [searchFoodItems, setSearchFoodItems] = useState([]);
@@ -37,6 +38,8 @@ const AllFoodItem = () => {
             .catch(err => {
                 console.log("Error while retreiving data: ", err);
             });
+
+        setLooding(true);
 
         fetch("https://restaurant-management-server-eta.vercel.app/productscount")
             .then(res => res.json())
@@ -115,6 +118,7 @@ const AllFoodItem = () => {
 
             {/* Showing cards */}
             <div className="max-w-6xl mx-auto">
+                { !looding && <div className="min-h-[50vh] flex justify-center items-center"><span className="loading loading-spinner loading-lg"></span></div>}
                 <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {
                         allFoods.map(food => <FoodCards key={food._id} food={food}></FoodCards>)

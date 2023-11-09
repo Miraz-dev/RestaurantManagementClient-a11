@@ -17,10 +17,12 @@
 
 - Home page shows the six top-selling products
 
-- Website has search functionality
+- Website has search functionality. User can also search based on the category on search page.
 
 - Pagination is used to show all the food data. Each page has maximum of 9 data.
 
 - Helmet Package is used to show title on the browsers tab.
 
 - Daisy UI's spinnner is added when data is in loading state.
+
+

@@ -12,7 +12,8 @@ const TopSellingSection = () => {
     const [looding, setLooding] = useState(false);
 
     useEffect(()=> {
-        // axios.get("https://restaurant-management-server-eta.vercel.app/orders")
+        // axios.get("https://restaurant-management-server-eta.vercel.app/orders"
+
         axios.get("https://restaurant-management-server-eta.vercel.app/top-selling-items")
             .then(result => {
                 setTopItems(result.data);
@@ -20,8 +21,9 @@ const TopSellingSection = () => {
             .catch(err => {
                 console.log("Error while GET /orders: ", err.data);
             });
-
+        
         setLooding(true);
+        
     }, []);
 
     const data = topItems.map(topItem => <TopSellingCard key={topItem._id} topItem={topItem}></TopSellingCard>);
@@ -30,9 +32,10 @@ const TopSellingSection = () => {
         <div>
             <h1 className="text-center text-xl lg:text-3xl mb-6 mt-14 font-bold">Top Selling Foods</h1>
             <div className="max-w-6xl mx-auto">
+                { !looding && <div className="min-h-[50vh] flex justify-center items-center"><span className="loading loading-spinner loading-lg"></span></div>}
                 <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {
-                        looding ? data : <div className="flex justify-center"><span className="loading loading-spinner loading-lg"></span></div>
+                        data 
                     }
                 </div>
             </div>
